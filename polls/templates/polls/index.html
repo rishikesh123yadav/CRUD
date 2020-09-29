@@ -1,0 +1,21 @@
+<html>
+<head>
+	<body>index</body>
+</head>
+<body><div><div style=" width: 45%; float: left">
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+       <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p> 
+{% endif %}
+</div>
+<div style="width: 50%;float:right;">
+	 <p>Max Vote:{% if max_votes %}{{max_votes}}{% endif %}</p>
+	<p>Question with max choices:</p>
+</div></div>
+</body>
+</html>
